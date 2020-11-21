@@ -1,0 +1,38 @@
+{% extends 'index.html' %}
+
+{% block title %}
+CHANGE PASSWORD
+{% endblock %}
+
+
+{% block content %}
+<h3 style="text-align:center;font-weight:bold">FORGOT PASSWORD</h3>
+<br>
+<div class="container">
+{% for i in messages %}
+<p style="text-align:center;color:red;">{{i}}</p>
+{% endfor %}
+<div class="d-flex justify-content-center jumbotron">
+<form action="forgotdata" method="post">
+    {% csrf_token %}
+  <div class="form-group">
+    <label >Username</label>
+    <input type="text" class="form-control"   placeholder="Enter username" name="uname" required>
+  </div>
+    <div class="form-group">
+    <label >Email</label>
+    <input type="email" class="form-control"  placeholder="Enter Email id" name="mail" required>
+  </div>
+  <div class="form-group">
+    <label >Password</label>
+    <input type="password" class="form-control"  placeholder="Password" name="pass" required>
+  </div>
+  <div class="form-group">
+    <label >Re-Password</label>
+    <input type="password" class="form-control"  placeholder="retype-Password" name="rpass" required>
+  </div><br>
+  <button type="submit" class="btn btn-raised btn-primary">Submit</button>
+</form>
+</div>
+</div>
+{% endblock %}
